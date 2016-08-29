@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TODOList</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles.css">
+    <!-- endinject -->
+</head>
+
+<body ng-app="todoListApp" ng-controller="mainCtrl" style="background-color: ghostwhite;">
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <div class="container">
+        <div>
+            <pre style="display: block; font-size: 10px; font-family: monospace; border-radius: 5px; color: white; white-space: pre; background-color:cornflowerblue; font-weight: 900; box-shadow: 7px 5px #000;">
+  _________________ _____ _____________ __________
+ /_____     ______/__   /    ______   /  ______   /
+      /    /  /     /  /    /     /  /  /     /  /
+     /    /  /_____/  /    /_____/  /  /_____/  /
+    /____/___________/____________ /__________ /List
+</pre>
+        </div>
+        <div style="box-shadow: 7px 5px #000;" class="jumbotron col-lg-3 col-md-4 col-sm-5 col-xs-12">
+            <form>
+                <label>Task Description</label>
+                <input ng-model="tasks.description" class="form-control">
+                <br>
+                <label>Priority</label>
+                <select ng-model="tasks.priority" class="form-control">
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select>
+                <br>
+                <a ng-click="addTask()" href "" class="btn btn-default btn-sm form-control">Add Task</a>
+            </form>
+            <br>
+            <label>Filter</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optradio" />Priority: High to Low</label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optradio" />Priority: Low to High</label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optradio" />Alphabetical</label>
+            </div>
+        </div>
+        <div class=" col-lg-9 col-md-8 col-sm-7 col-xs-12">
+            <div style="box-shadow: 7px 5px #000;" class="jumbotron">
+                <div ng-repeat="todo in todos" class="list">
+                    <p>{{todo.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/hello-world.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
+<!--Create a heading area and title bar-->
+<!--Create an input area in the first 2 columns of the page
+this area should have a title, an input field, a selection box and a button-->
+<!--Create an option area on the last 10 columns of the oage that will allow you to order the items in the output area based on the filters Priority - Highest - Lowest / Alphabetical-->
+<!--Create an output area-->
